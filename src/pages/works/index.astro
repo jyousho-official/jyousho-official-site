@@ -12,7 +12,7 @@ const works = (await getCollection('works', ({ data }) => !data.draft))
   <section class="page-hero compact-page-hero works-hero">
     <div class="shell page-hero-grid">
       <div>
-        <p class="eyebrow"><span>03</span> WORKS</p>
+        <p class="eyebrow"><span>00</span> WORKS</p>
         <h1>作品集</h1>
         <p class="page-intro">私たちが制作したプログラム、イラスト、CG、動画、音楽の作品を紹介します。</p>
       </div>
@@ -41,6 +41,15 @@ const works = (await getCollection('works', ({ data }) => !data.draft))
       <p class="empty-state">公開中の作品はまだありません。準備が整った作品から掲載します。</p>
     )}
     <p class="filter-empty" hidden>該当する作品はまだありません。</p>
+  </section>
+
+  <section class="section shell">
+    <div class="cta-strip">
+      <p>
+        <strong>文化祭でも作品を展示します</strong><br
+        />開催日やアクセスは文化祭ページをご覧ください。
+      </p><a class="button" href="/festival">文化祭ページを見る ›</a>
+    </div>
   </section>
 
   <script>
