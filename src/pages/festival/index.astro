@@ -1,14 +1,25 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AbstractGraphic from "../../components/AbstractGraphic.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import Icon from "../../components/Icon.astro";
 import { festival } from "../../data/site";
 ---
 
 <BaseLayout title="文化祭" theme="festival">
-  <section class="festival-page-hero shell">
-    <p class="eyebrow"><span>04</span> FESTIVAL</p>
-    <h1>文化祭 <small>{festival.year}</small></h1>
+  <section class="page-hero compact-page-hero">
+    <div class="shell page-hero-grid">
+      <div>
+        <p class="eyebrow"><span>00</span> FESTIVAL</p>
+        <h1>文化祭 <small>{festival.year}</small></h1>
+        <p class="page-intro">情報処理研究会の文化祭展示のご案内です。</p>
+      </div>
+      <AbstractGraphic />
+    </div>
+  </section>
+
+  <section class="section shell">
+    <SectionHeading number="01" label="INFORMATION" title="開催情報" />
     <div class="festival-hero-card">
       <div class="festival-illustration" aria-hidden="true">
         <span class="festival-building"></span>
@@ -41,7 +52,7 @@ import { festival } from "../../data/site";
   </section>
 
   <section class="section shell">
-    <SectionHeading number="05" label="ACCESS" title="アクセス・案内" />
+    <SectionHeading number="02" label="ACCESS" title="アクセス・案内" />
     <div class="access-grid">
       <article>
         <Icon name="train" /><h3>アクセス</h3><p>
