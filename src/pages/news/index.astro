@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AbstractGraphic from '../../components/AbstractGraphic.astro';
+
+const posts = (await getCollection('news', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const formatter = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title="お知らせ" description="情報処理研究会からのお知らせ・告知の一覧です。" theme="article">
+  <section class="page-hero compact-page-hero">
+    <div class="shell page-hero-grid">
+      <div>
+        <p class="eyebrow"><span>00</span> NEWS</p>
+        <h1>お知らせ</h1>
+        <p class="page-intro">情報処理研究会からの告知やお知らせを掲載します。</p>
+      </div>
+      <AbstractGraphic />
+    </div>
+  </section>
+
+  <section class="section shell narrow-shell">
+    {posts.length > 0 ? (
+      <ul class="news-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/news/${post.id}`}>
+              <time datetime={post.data.publishedAt.toISOString()}>{formatter.format(post.data.publishedAt)}</time>
+              <span class="news-list-title">{post.data.title}</span>
+              <span class="news-list-description">{post.data.description}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty-state">お知らせはまだありません。</p>
+    )}
+  </section>
+</BaseLayout>

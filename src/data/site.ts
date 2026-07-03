@@ -8,8 +8,15 @@ export const site = {
     { href: '/teams', label: '班紹介' },
     { href: '/works', label: '作品' },
     { href: '/festival', label: '文化祭' },
+    { href: '/news', label: 'お知らせ' },
   ],
 };
+
+export const socialLinks = [
+  { href: 'https://x.com/jousyo_tku', label: 'X', icon: 'x' },
+  { href: 'https://www.youtube.com/@tkujyousho2037', label: 'YouTube', icon: 'youtube' },
+  { href: 'https://www.instagram.com/jyousho0831', label: 'Instagram', icon: 'instagram' },
+] as const;
 
 export const teamLabels = {
   programming: 'プログラミング班',
@@ -28,6 +35,7 @@ export const teams = [
     image: '/images/teams/programming.svg',
     description: 'Webサイト、アプリ、ゲームなどを作ります。',
     activity: 'PythonやJavaScriptなどを使い、ゲームやWebアプリを制作します。',
+    publishPlatform: 'GitHub',
   },
   {
     id: 'illustration',
@@ -37,6 +45,7 @@ export const teams = [
     image: '/images/teams/illustration.svg',
     description: 'キャラクター、背景、ロゴ、展示物のビジュアル制作に取り組みます。',
     activity: 'デジタル作画の練習から、Webや動画で使う素材づくりまで担当します。',
+    publishPlatform: 'X',
   },
   {
     id: 'cg',
@@ -46,6 +55,7 @@ export const teams = [
     image: '/images/teams/cg.svg',
     description: '3Dモデル、モーション、レンダリングなどのCG制作に取り組みます。',
     activity: 'Blenderなどを使い、映像やゲームに使える3D素材やシーンを制作します。',
+    publishPlatform: 'InstagramとYouTube',
   },
   {
     id: 'video',
@@ -55,6 +65,7 @@ export const teams = [
     image: '/images/teams/video.svg',
     description: '企画、撮影、編集を通して、活動紹介や作品発表の映像を制作します。',
     activity: '短編動画、告知映像、文化祭向けの展示映像などを形にします。',
+    publishPlatform: 'YouTube',
   },
   {
     id: 'music',
@@ -64,13 +75,14 @@ export const teams = [
     image: '/images/teams/music.svg',
     description: '作曲、編曲、効果音制作を中心に、作品の音づくりを進めます。',
     activity: 'ゲームや動画に合わせたBGM、ジングル、サウンド素材を制作します。',
+    publishPlatform: 'YouTube',
   },
 ] as const;
 
 export const festival = {
   year: '2026',
   date: '日程が決まり次第お知らせします',
-  place: '1号館',
+  place: '場所が決まり次第お知らせします',
   time: '開催時間が決まり次第お知らせします',
   notice: '展示内容や来場案内は、準備状況に合わせて順次更新します。',
 };
