@@ -63,8 +63,8 @@ export const teams = [
     file: 'video.mp4',
     icon: 'video',
     image: '/images/teams/video.svg',
-    description: '企画、撮影、編集を通して、活動紹介や作品発表の映像を制作します。',
-    activity: '短編動画、告知映像、文化祭向けの展示映像などを形にします。',
+    description: 'YouTubeや文化祭での動画投稿を行っています。',
+    activity: 'ジャンル問わず、想いを表現しよう。',
     publishPlatform: 'YouTube',
   },
   {
