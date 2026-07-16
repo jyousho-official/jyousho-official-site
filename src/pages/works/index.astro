@@ -65,7 +65,7 @@ const works = (await getCollection('works', ({ data }) => !data.draft))
         let visibleCount = 0;
         cards.forEach((card) => {
           const teams = card.getAttribute('data-teams')?.split(' ') ?? [];
-          const show = filter === 'all' || teams.includes(filter);
+          const show = filter === 'all' || (filter !== null && teams.includes(filter));
           card.toggleAttribute('hidden', !show);
           if (show) visibleCount += 1;
         });
