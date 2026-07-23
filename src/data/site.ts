@@ -1,7 +1,7 @@
 export const site = {
   name: '情報処理研究会',
   shortName: 'JYOUSHO',
-  domain: 'jyousho-official-site.pages.dev',
+  domain: 'jyoushotku.com',
   description: 'プログラミング、イラスト、CG、動画、音楽の5つの班で、デジタル作品の制作と発表に取り組む情報処理研究会の公式サイトです。',
   nav: [
     { href: '/about', label: '私たちについて' },

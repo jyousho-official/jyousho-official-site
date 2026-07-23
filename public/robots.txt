@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jyousho-official-site.pages.dev/sitemap-index.xml
+Sitemap: https://jyoushotku.com/sitemap-index.xml
