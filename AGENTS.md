@@ -30,7 +30,7 @@ npm run preview      # ビルド成果物の確認
 npx wrangler deploy  # Cloudflare へデプロイ（dist/ が必要）
 ```
 
-**検証方法**: テストランナーは無い。変更後の正否は `npm run build` の成否で判断する。型エラー・frontmatter のスキーマ違反・壊れた import はすべてビルドで落ちる。コミット前に必ず通すこと。
+**検証方法**: 既定は `npm run build`。WebMCP コアは `npm test`（`node --test`）。コミット前に両方通すこと。
 
 ## 不変条件（壊してはいけない規約）
 
