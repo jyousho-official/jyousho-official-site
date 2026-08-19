@@ -34,7 +34,7 @@
 | `name` | string | 表示名（例: プログラミング班） |
 | `file` | string | 擬似ファイル名（例: `programming.exe`）。デザインモチーフ |
 | `icon` | string | `Icon.astro` のアイコン名 |
-| `image` | string | 班アイコン画像パス（`/images/teams/*.svg`） |
+| `image` | string | 班アイコン画像パス（`/images/teams/*.png`） |
 | `description` | string | 短い説明 |
 | `activity` | string | 活動内容 |
 

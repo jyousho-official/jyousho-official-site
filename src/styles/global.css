@@ -134,6 +134,7 @@ button { color: inherit; }
 .hero h1 { font-size: clamp(3.2rem, 5.2vw, 5.1rem); white-space: nowrap; }
 .hero-lead, .page-lead { margin: 20px 0 22px; color: var(--accent); font-size: clamp(1.55rem, 3vw, 2.25rem); font-weight: 750; letter-spacing: .04em; }
 .hero-description { margin: 0 0 34px; font-size: 1.1rem; }
+.hero-mark { width: min(100%, 640px); height: auto; justify-self: end; object-fit: contain; }
 
 .abstract-graphic { position: relative; align-self: stretch; min-height: 520px; overflow: hidden; }
 .abstract-block, .abstract-line, .abstract-dots, .abstract-grid { position: absolute; display: block; }
@@ -183,7 +184,7 @@ button { color: inherit; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .team-card { position: relative; min-height: 205px; display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 26px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; color: var(--ink); }
 .team-card > svg { color: var(--accent); }
-.team-card-image { flex: none; width: 54px; height: 54px; border-radius: 50%; object-fit: cover; }
+.team-card-image { flex: none; width: 54px; height: 54px; border-radius: 8px; object-fit: contain; }
 .team-card h3 { margin: 0; font-size: 1.02rem; }
 .team-card p { margin: 7px 0 0; color: var(--muted); font-size: .84rem; }
 .file-label { color: var(--accent) !important; font-family: var(--font-mono); font-size: .77rem !important; }
@@ -237,7 +238,7 @@ button { color: inherit; }
 .activity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .activity-card { display: flex; align-items: center; gap: 22px; min-height: 150px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
 .activity-card > svg { flex: none; width: 76px; height: 76px; padding: 17px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); }
-.activity-card-image { flex: none; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; }
+.activity-card-image { flex: none; width: 76px; height: 76px; border-radius: 8px; object-fit: contain; }
 .environment-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 45px; align-items: stretch; }
 .environment-visual { min-height: 330px; display: grid; place-items: center; border-radius: var(--radius); background: linear-gradient(145deg, var(--accent-soft), var(--soft)); color: var(--muted); border: 1px solid var(--line); }
 .environment-list { display: grid; }
@@ -253,7 +254,7 @@ button { color: inherit; }
 .team-table-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 18px; }
 .team-table-card { display: grid; grid-template-columns: minmax(220px, .48fr) minmax(0, 1fr); align-items: center; gap: 25px; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); }
 .team-table-heading { display: flex; align-items: center; gap: 14px; min-width: 0; }
-.team-table-heading img { flex: none; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.team-table-heading img { flex: none; width: 64px; height: 64px; border-radius: 8px; object-fit: contain; }
 .team-table-card svg { color: var(--accent); }
 .team-table-card h3 { margin: 0; font-size: 1rem; }
 .team-table-card p { margin: 3px 0 0; color: var(--accent); font-family: var(--font-mono); font-size: .76rem; overflow-wrap: anywhere; }

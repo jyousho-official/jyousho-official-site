@@ -12,4 +12,5 @@
     4. 「URL 検査」から `https://jyoushotku.com/` のインデックス登録をリクエスト。
 
 ## 完了済みタスク
+- [x] 各班ロゴを Drive の透過PNGへ差し替え（2026-08-19）
 - [x] 独自ドメイン (`jyoushotku.com`) 適用に伴う canonical URL / sitemap / robots.txt / README / site.ts の統一修正（2026-07-23）

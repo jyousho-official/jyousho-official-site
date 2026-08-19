@@ -1,12 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import AbstractGraphic from "../components/AbstractGraphic.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import WorkCard from "../components/WorkCard.astro";
 import TeamCard from "../components/TeamCard.astro";
 import Icon from "../components/Icon.astro";
-import { teams, festival } from "../data/site";
+import { site, teams, festival } from "../data/site";
 
 const works = (await getCollection("works", ({ data }) => !data.draft))
   .sort(
@@ -32,7 +31,7 @@ const works = (await getCollection("works", ({ data }) => !data.draft))
           >作品を見る <span aria-hidden="true">›</span></a
         >
       </div>
-      <AbstractGraphic />
+      <img class="hero-mark" src={site.logo} alt="" width="720" height="720" />
     </div>
   </section>
 
