@@ -1,7 +1,7 @@
 # TASKS.md - jyousho-official-site
 
 ## 未完了タスク
-- [ ] Google Search Console への登録とインデックス登録リクエスト（**2026-08-19 実施予定**）
+- [x] Google Search Console への登録とインデックス登録リクエスト（**2026-08-19 実施予定**）
   - **背景・状況**: 先輩から Search Console のアカウント情報を受領した後に実施する。所有権確認は本人/先輩のGoogleアカウントが必要。エージェントはログインできない。
   - **対象 URL**: `https://jyoushotku.com/`
   - **送信予定サイトマップ**: `https://jyoushotku.com/sitemap-index.xml`
