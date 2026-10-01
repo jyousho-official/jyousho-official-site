@@ -13,8 +13,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.2.3"
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
   },
   "overrides": {
     "esbuild": "0.28.1"
