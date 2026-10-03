@@ -5,7 +5,7 @@ publishedAt: 2026-07-01
 team:
   - video
 creator: "ノア"
-image: "../../public/images/tesupu.jpg"
+image: "/images/works/video/tesupu.jpg"
 imageAlt: "画像が出ないときに出る説明"
 featured: false
 tags:
