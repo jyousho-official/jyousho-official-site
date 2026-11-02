@@ -12,7 +12,6 @@ tags:
   - 動画
   - VOICEVOX
   - ゲーム実況
-externalUrl: "https://youtu.be/LgyHebUcHwc?si=7efAUBbFNq9mCmtf"
 draft: false
 ---
 
@@ -33,3 +32,7 @@ YMM4
 
 「実際の会話」と「見せる会話」は多少なりとも違うため、会話のテンポ感を意識しました。
 主要人物の立ち絵の作者様を揃えました。揃えることで統一感が出ます。
+
+## URL
+
+https://youtu.be/LgyHebUcHwc?si=7efAUBbFNq9mCmtf

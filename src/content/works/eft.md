@@ -10,7 +10,6 @@ imageAlt: "なし"
 featured: false
 tags:
   - "EFT"
-externalUrl: "https://example.com"
 ---
 
 ## 作品概要
@@ -21,7 +20,8 @@ externalUrl: "https://example.com"
 
 - 使用技術
 - 使用ソフト
-OBS ゆっくりムービーメーカー
+  OBS ゆっくりムービーメーカー
 
 ## 工夫した点
+
 単純明快

@@ -1,10 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import sitemap from '@astrojs/sitemap';
+import { satteri } from "@astrojs/markdown-satteri";
+import sitemap from "@astrojs/sitemap";
+import { workUrlPlugin } from "./src/plugins/work-url.mjs";
 
 export default defineConfig({
-  site: 'https://jyoushotku.com',
+  site: "https://jyoushotku.com",
   server: { host: true, port: 4321 },
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  markdown: {
+    processor: satteri({
+      mdastPlugins: [workUrlPlugin],
+    }),
+  },
 });

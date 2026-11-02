@@ -12,9 +12,11 @@ featured: false
 tags:
   - Web
   - Astro
-externalUrl: "https://example.com"
 draft: true
 ---
+
+ここから下に画像を表示させたい場合は下の書き方をしてください
+![画像が表示されないときに表示される説明](/images/works/example-screen.jpg)
 
 ## 作品概要
 
@@ -28,3 +30,9 @@ draft: true
 ## 工夫した点
 
 制作で工夫した点を書きます。
+
+## URL
+
+URLがない場合は、## URLから下を削除してください。
+
+https://example.com

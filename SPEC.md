@@ -65,13 +65,12 @@
 | `imageAlt` | string | | — | |
 | `featured` | boolean | | `false` | 一覧先頭で強調 |
 | `tags` | string[] | | `[]` | |
-| `externalUrl` | string（url） | | — | 外部公開リンク |
 | `draft` | boolean | | `false` | true は非公開 |
 
 ### 生成・表示ルール
 
 - `getStaticPaths` は `draft: false` のみページ化する。
-- 詳細ページ: 所属班名（`teamLabels` で変換、複数班は ` / ` 連結）、タグ、Markdown 本文、`externalUrl` があれば外部リンクボタンを描画。
+- 詳細ページ: 所属班名（`teamLabels` で変換、複数班は ` / ` 連結）、タグ、Markdown 本文。本文の「工夫した点」の次にある「URL」見出し（`URL` だけ、または `URL ` のあとに注記が続くもの）の直下に URL だけの行があれば、注記を含む見出しは出さず、その行を外部リンクボタン（「作品を開く」）として描画する。どのプラットフォームにも出していない作品など、公開 URL が無い場合は `## URL` の行から下を書かない。その場合はボタンを出さずにページ化する。見出しだけで URL 行が無いときも、見出しは出さない。
 - 一覧の `featured`: 複数 true のとき `publishedAt` 降順を優先。
 
 ## 共通メタデータ（`BaseLayout.astro`）

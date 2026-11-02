@@ -30,7 +30,4 @@ const teamNames = work.data.team.map((team) => teamLabels[team]).join(' / ');
     {work.data.tags.length > 0 && <div class="tag-list">{work.data.tags.map((tag) => <span>{tag}</span>)}</div>}
   </div>
   <Content />
-  <div class="article-actions">
-    {work.data.externalUrl && <a class="button" href={work.data.externalUrl} target="_blank" rel="noreferrer">作品を開く ↗</a>}
-  </div>
 </ContentLayout>

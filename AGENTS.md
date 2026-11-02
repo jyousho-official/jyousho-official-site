@@ -4,21 +4,23 @@
 
 ## このリポジトリは何か
 
-情報処理研究会（`jyousho-official-site`）の公式サイト。Astro 6 で静的 HTML を生成し、Cloudflare Workers の静的アセット配信で公開する。サーバーロジック・DB・認証・フォーム送信は一切ない（純粋な SSG）。
+情報処理研究会（`jyousho-official-site`）の公式サイト。Astro 7 で静的 HTML を生成し、Cloudflare Workers の静的アセット配信で公開する。サーバーロジック・DB・認証・フォーム送信は一切ない（純粋な SSG）。Markdown は Sätteri（`astro.config.mjs` の `markdown.processor`）で処理する。
 
-- 公開ドメイン: `jyousho-official-site.pages.dev`
+- 公開ドメイン: `jyoushotku.com`（`astro.config.mjs` の `site`）
 - 言語/型: TypeScript（`astro/tsconfigs/strict`）
 - Node.js: `>=22.12.0`
 
 ## 最初に読むべきファイル
 
-| ファイル | 把握できること |
-| :-- | :-- |
-| `src/data/site.ts` | サイト名・ナビ・全班定義・文化祭情報（**コンテンツの単一の情報源**） |
-| `src/content.config.ts` | `works` コレクションの zod スキーマ |
-| `src/layouts/BaseLayout.astro` | 全ページ共通の `<head>`・メタ・OGP・テーマ適用 |
-| `src/styles/global.css` | 全スタイルと CSS 変数（テーマ配色） |
-| `src/components/Icon.astro` | 使用可能なアイコン名一覧（`name` 分岐） |
+| ファイル                         | 把握できること                                                       |
+| :------------------------------- | :------------------------------------------------------------------- |
+| `src/data/site.ts`               | サイト名・ナビ・全班定義・文化祭情報（**コンテンツの単一の情報源**） |
+| `src/content.config.ts`          | `works` と `news` の zod スキーマ                                    |
+| `src/content/works/_template.md` | 作品 Markdown の本文構成（画像・節・URL）の正                        |
+| `src/plugins/work-url.mjs`       | 作品本文の URL 行を「作品を開く」ボタンにする処理                    |
+| `src/layouts/BaseLayout.astro`   | 全ページ共通の `<head>`・メタ・OGP・テーマ適用                       |
+| `src/styles/global.css`          | 全スタイルと CSS 変数（テーマ配色）                                  |
+| `src/components/Icon.astro`      | 使用可能なアイコン名一覧（`name` 分岐）                              |
 
 ## コマンド
 
@@ -44,23 +46,38 @@ npx wrangler deploy  # Cloudflare へデプロイ（dist/ が必要）
 ## よくある作業のレシピ
 
 ### 作品を追加する
-`src/content/works/<slug>.md` を作る（`_template.md` をコピー）。`<slug>` がそのまま URL になる。frontmatter は `src/content.config.ts` のスキーマに従う（→ SPEC.md）。画像は `public/images/works/` に置く。`draft: true` の間はページ生成されない。
+
+`src/content/works/_template.md` を `src/content/works/<slug>.md` にコピーする。`<slug>` がそのまま URL になる。frontmatter は `src/content.config.ts` のスキーマに従う（→ SPEC.md）。`draft: true` の間はページ生成されない。本文の節順・注記の位置・見出しの文言はひな形を正とし、エージェント判断で動かさない。
+
+- 一覧用のカバー画像は frontmatter の `image` と `imageAlt`。ファイルは `public/images/works/` に置き、値は `/images/works/...`。
+- 本文中の画像は `![画像が表示されないときに表示される説明](/images/works/example-screen.jpg)`。置く位置はひな形の先頭（`## 作品概要` の前）を基準にし、同じ記法を段落のあいだにも使える。`## URL` の直下には置かない。
+- 公開 URL は frontmatter に書かない。`externalUrl` はない。ひな形どおり `## URL` を置き、その次の行に「URLがない場合は、## URLから下を削除してください。」、さらにその次に `https://` だけの行を書く。
+- URL が無い作品は、ひな形の案内どおり `## URL` から下を削除する。ボタンは出さない。
+- `src/plugins/work-url.mjs` は、見出しが `URL` だけ、または `URL` の直後に空白か `(` が続く h2 の節にある、URL だけの段落を「作品を開く」ボタンにする。見出し自体を公開ページから除くのは、その見出しの直後の段落が URL だけのときと、その節が空のときだけである。
+
+### お知らせを追加する
+
+`src/content/news/_template.md` をコピーする。frontmatter は `news` スキーマに従う。本文に作品の `## URL` 節は使わない。
 
 ### 班の情報を変える
+
 `src/data/site.ts` の `teams` を編集。表示名だけ使う箇所は `teamLabels`。班を増減する場合は `content.config.ts` の `team` enum、`teamLabels`、班アイコン画像（`public/images/teams/`）、`Icon.astro` の対応も揃える。
 
 ### ページを追加する
+
 `src/pages/` にファイルを置く（ファイルパス = URL）。`BaseLayout` でラップし、適切な `theme` prop を渡す。ナビに載せるなら `site.ts` の `nav` に追加。
 
 ### アイコンを追加する
+
 `src/components/Icon.astro` に `{name === '...' && <>...</>}` の分岐を足す。`fill: none` / `stroke: currentColor` の線画で統一。
 
 ### 配色テーマを足す/変える
+
 `global.css` の `html[data-theme="..."]` ブロックで `--accent` 系を上書きし、`BaseLayout` の `theme` prop の Union 型に値を追加する。
 
 ## 既知の注意点
 
-- README には「制作記録 / blog（`src/content/blog/*.md`）」の記述があるが、**現状 `blog` コレクションもページも存在しない**。コンテンツコレクションは `works` のみ。blog 実装を求められた場合はゼロから追加が必要。
+- README には「制作記録 / blog（`src/content/blog/*.md`）」の記述があるが、**現状 `blog` コレクションもページも存在しない**。コンテンツコレクションは `works` と `news`。blog 実装を求められた場合はゼロから追加が必要。
 - `Astro.site` 未設定時のフォールバックがあるが、ビルドは `astro.config.mjs` の `site` 前提。
 
 ## Git / デプロイ
