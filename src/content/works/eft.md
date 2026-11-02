@@ -5,7 +5,7 @@ publishedAt: 2026-09-10
 team:
   - video
 creator: "tarkov市民"
-image: "/images/works/video/tarkov 2026-09-10 10-59-52.jpg"
+image: "/images/works/tarkov/tarkov 2026-09-10 10-59-52.jpg"
 imageAlt: "なし"
 featured: false
 tags:

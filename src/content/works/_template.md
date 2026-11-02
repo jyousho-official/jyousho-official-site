@@ -6,7 +6,7 @@ team:
   - programming
 # team: programming / illustration / cg / video / music
 creator: "制作者名またはチーム名"
-image: "/images/works/example.webp"
+image: "/images/works/作品名をアルファベットだけで/example.jpg"
 imageAlt: "作品画像の説明"
 featured: false
 tags:
@@ -16,7 +16,7 @@ draft: true
 ---
 
 ここから下に画像を表示させたい場合は下の書き方をしてください
-![画像が表示されないときに表示される説明](/images/works/example-screen.jpg)
+![画像が表示されないときに表示される説明](/images/works/作品名をアルファベットだけで/example.jpg)
 
 ## 作品概要
 
