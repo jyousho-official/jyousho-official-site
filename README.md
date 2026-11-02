@@ -33,25 +33,37 @@ npm run build
 
 ## 作品の追加
 
-`src/content/works/` に Markdown ファイルを追加します。ファイル名が URL になります。
-
-例: `src/content/works/my-game.md`
+`src/content/works/_template.md` をコピーして `src/content/works/<ファイル名>.md` を作ります。ファイル名が URL になります。例: `src/content/works/my-game.md` は `/works/my-game` です。本文の節の順と注記の位置は、ひな形のまま使います。
 
 ```md
 ---
 title: "作品タイトル"
 description: "作品一覧に表示する短い説明"
-publishedAt: 2026-07-01
+publishedAt: 2026-06-25
 team:
   - programming
+# team: programming / illustration / cg / video / music
 creator: "制作者名またはチーム名"
-image: "/images/works/my-game.webp"
-imageAlt: "作品のスクリーンショット"
+image: "/images/works/example.webp"
+imageAlt: "作品画像の説明"
 featured: false
 tags:
   - Web
-draft: false
+  - Astro
+draft: true
 ---
+
+ここから下に画像を表示させたい場合は下の書き方をしてください
+![画像が表示されないときに表示される説明](/images/works/example-screen.jpg)
+
+## 作品概要
+
+作品の概要を書きます。
+
+## 使用した技術・ツール
+
+- 使用技術
+- 使用ソフト
 
 ## 工夫した点
 
@@ -59,10 +71,12 @@ draft: false
 
 ## URL
 
+URLがない場合は、## URLから下を削除してください。
+
 https://example.com
 ```
 
-下書きのひな形は `src/content/works/_template.md` にあります。
+`draft: true` の間はページになりません。公開するときは `draft: false` にするか、`draft` の行を削除します。
 
 `team` は `programming`、`illustration`、`cg`、`video`、`music` から選びます。複数班の混合作品は複数行で書けます。
 
@@ -77,30 +91,32 @@ team:
 
 `featured` は作品一覧ページの先頭に大きく表示するかどうかです。通常の作品は `featured: false` のままで大丈夫です。特に見せたい作品だけ `featured: true` にしてください。複数の作品を `true` にした場合は、新しい日付の作品が優先されます。
 
-作品の公開 URL があるときだけ、本文の「工夫した点」の次に URL の見出しを置き、その下へ URL だけの行として書きます。見出しは `## URL` だけでも、ひな形のように `## URL (URLがない場合は、この行から下を削除してください。)` でも同じです。公開ページでは注記を含む見出しは出さず、その位置に「作品を開く」ボタンが出ます。どのプラットフォームにも投稿していない作品など、URL が無い場合は、その見出しの行から下を削除して構いません。その作品もそのまま公開でき、ボタンは出ません。
+公開 URL は本文の `## URL` に書きます。frontmatter には書きません。`https://` だけの行は、公開ページでは「作品を開く」ボタンになります。どのプラットフォームにも投稿していない作品など、URL が無い場合は `## URL` から下を削除します。その作品もそのまま公開でき、ボタンは出ません。
 
 ### 作品画像
 
 作品画像は `public/images/works/` に置きます。Markdown からは `/images/works/ファイル名` で参照します。
 
 ```txt
-public/images/works/my-game.webp
+public/images/works/example.webp
+public/images/works/example-screen.jpg
 ```
 
-frontmatter の `image` にはこのように書きます。
+一覧とページ上部に出すカバー画像は、frontmatter に書きます。
 
 ```md
-image: "/images/works/my-game.webp"
-imageAlt: "作品のスクリーンショット"
+image: "/images/works/example.webp"
+imageAlt: "作品画像の説明"
 ```
 
-本文中に画像を入れたい場合も同じパスを使えます。
+本文中の画像は、ひな形の先頭にある次の書き方です。`## 作品概要` より前に置くほか、各節の段落のあいだにも同じ形で入れられます。`## URL` の直下には置かないでください。
 
 ```md
-![ゲーム画面](/images/works/my-game-screen.webp)
+ここから下に画像を表示させたい場合は下の書き方をしてください
+![画像が表示されないときに表示される説明](/images/works/example-screen.jpg)
 ```
 
-画像形式は `webp`、`jpg`、`png` が使えます。ファイル名は日本語や空白を避けて、英数字とハイフンで `my-game-screen.webp` のようにすると安全です。
+画像形式は `webp`、`jpg`、`png` が使えます。ファイル名は日本語や空白を避けて、英数字とハイフンで `example-screen.jpg` のようにすると安全です。
 
 ## 文化祭ページの更新
 
