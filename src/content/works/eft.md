@@ -10,6 +10,7 @@ imageAlt: "なし"
 featured: false
 tags:
   - "EFT"
+draft: false
 ---
 
 ## 作品概要
